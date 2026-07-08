@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analiza tu plan | PlanesPro</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="light">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="pb-shell">
+    <section class="pb-layout" aria-labelledby="pb-title">
+      <header class="pb-header">
+        <div class="pb-brand">
+          <!-- Usamos el logo de la carpeta assets local -->
+          <img class="pb-logo" src="./assets/logos/planespro/logo-planespro-obs.webp" alt="PlanesPro" width="88" height="88">
+          <div class="pb-brand-copy">
+            <h1 id="pb-title">Analiza tu plan de salud</h1>
+            <p class="pb-header-kicker">Gratis <span>&bull;</span> Sin compromiso <span>&bull;</span> Toma menos de 1 minuto</p>
+            <p class="pb-header-note">Te contactaremos solo para revisar si puedes mejorar tu plan.</p>
+          </div>
+        </div>
+        <button type="button" class="pb-close" id="pb-exit-trigger" aria-label="Cerrar formulario">
+          <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+      </header>
+
+      <div class="pb-body" id="pb-form-view">
+        <form id="pb-lead-form" novalidate>
+          <section class="pb-section" aria-labelledby="pb-section-plan">
+            <div class="pb-section-title-wrap">
+              <span class="pb-section-icon"><i class="fas fa-heart" aria-hidden="true"></i></span>
+              <h2 id="pb-section-plan" class="pb-section-title">Tu plan actual</h2>
+            </div>
+
+            <div class="pb-field-group">
+              <label class="pb-label">¿Dónde estás afiliado?</label>
+              <div class="pb-choice-row" id="pb-system-choice">
+                <button type="button" class="pb-choice-chip" data-system="Fonasa">
+                  <i class="fas fa-circle-check pb-choice-chip__check" aria-hidden="true"></i>
+                  <span>Fonasa</span>
+                </button>
+                <button type="button" class="pb-choice-chip is-selected" data-system="Isapre">
+                  <i class="fas fa-circle-check pb-choice-chip__check" aria-hidden="true"></i>
+                  <span>Isapre</span>
+                </button>
+              </div>
+              <input type="hidden" name="sistema_actual" id="pb-system-input" value="Isapre">
+            </div>
+
+            <div class="pb-grid pb-grid--single">
+              <div class="pb-field-group" id="pb-isapre-group">
+                <label class="pb-label" for="pb-isapre-select">Selecciona tu Isapre</label>
+                <div class="pb-select-wrap">
+                  <select id="pb-isapre-select" name="isapre_especifica">
+                    <option value="">Selecciona...</option>
+                    <option value="Banmédica">Banmédica</option>
+                    <option value="Colmena">Colmena</option>
+                    <option value="Consalud">Consalud</option>
+                    <option value="Cruz Blanca">Cruz Blanca</option>
+                    <option value="Esencial">Esencial</option>
+                    <option value="Nueva Masvida">Nueva Masvida</option>
+                    <option value="Vida Tres">Vida Tres</option>
+                    <option value="Otra">Otra</option>
+                  </select>
+                  <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <p class="pb-error" data-error-for="isapre_especifica">Selecciona tu Isapre.</p>
+              </div>
+
+              <div class="pb-field-group" id="pb-renta-group" hidden>
+                <label class="pb-label" for="pb-renta-select">Selecciona tu renta</label>
+                <div class="pb-select-wrap">
+                  <select id="pb-renta-select" name="rango_renta">
+                    <option value="">Selecciona...</option>
+                    <option value="Menos de $500.000">Menos de $500.000</option>
+                    <option value="$500.001 - $900.000">$500.001 - $900.000</option>
+                    <option value="$900.001 - $1.300.000">$900.001 - $1.300.000</option>
+                    <option value="$1.300.001 - $1.800.000">$1.300.001 - $1.800.000</option>
+                    <option value="$1.800.001 - $2.400.000">$1.800.001 - $2.400.000</option>
+                    <option value="$2.400.001 - $3.600.000">$2.400.001 - $3.600.000</option>
+                    <option value="Más de $3.600.000">Más de $3.600.000</option>
+                  </select>
+                  <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <p class="pb-error" data-error-for="rango_renta">Selecciona tu renta.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="pb-section" aria-labelledby="pb-section-data">
+            <div class="pb-section-title-wrap">
+              <span class="pb-section-icon"><i class="fas fa-user" aria-hidden="true"></i></span>
+              <h2 id="pb-section-data" class="pb-section-title">Tus datos</h2>
+            </div>
+
+            <div class="pb-grid">
+              <div class="pb-field-group">
+                <label class="pb-label" for="pb-name">Nombre</label>
+                <input id="pb-name" name="nombre" type="text" class="pb-input" placeholder="Ej: Javiera González" autocomplete="name">
+                <p class="pb-error" data-error-for="nombre">Ingresa tu nombre.</p>
+              </div>
+
+              <div class="pb-field-group">
+                <label class="pb-label" for="pb-age">Edad</label>
+                <div class="pb-select-wrap">
+                  <select id="pb-age" name="rango_edad">
+                    <option value="">Selecciona...</option>
+                    <option value="18-25">18 a 25 años</option>
+                    <option value="26-35">26 a 35 años</option>
+                    <option value="36-45">36 a 45 años</option>
+                    <option value="46-55">46 a 55 años</option>
+                    <option value="56-64">56 a 64 años</option>
+                    <option value="65+">65 años o más</option>
+                  </select>
+                  <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                </div>
+                <p class="pb-error" data-error-for="rango_edad">Selecciona tu edad.</p>
+              </div>
+
+              <div class="pb-field-group">
+                <label class="pb-label" for="pb-phone">Teléfono</label>
+                <div class="pb-phone-wrap">
+                  <span class="pb-phone-prefix">+56</span>
+                  <input id="pb-phone" name="telefono" type="tel" class="pb-input pb-input--phone" placeholder="9 XXXX XXXX" inputmode="numeric" autocomplete="tel-national">
+                </div>
+                <p class="pb-error" data-error-for="telefono">Ingresa 9 dígitos.</p>
+              </div>
+
+              <div class="pb-field-group">
+                <label class="pb-label" for="pb-email">Correo</label>
+                <input id="pb-email" name="email" type="email" class="pb-input" placeholder="correo@ejemplo.cl" autocomplete="email">
+                <p class="pb-error" data-error-for="email">Ingresa un correo válido.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="pb-section" aria-labelledby="pb-section-contact">
+            <div class="pb-section-title-wrap">
+              <span class="pb-section-icon"><i class="fas fa-clock" aria-hidden="true"></i></span>
+              <h2 id="pb-section-contact" class="pb-section-title">¿Cuándo prefieres que te contactemos?</h2>
+            </div>
+
+            <div class="pb-choice-row" id="pb-contact-choice">
+              <button type="button" class="pb-choice-chip is-selected" data-contact="lo_antes_posible">
+                <i class="fas fa-circle-check pb-choice-chip__check" aria-hidden="true"></i>
+                <span>Hoy si es posible</span>
+              </button>
+              <button type="button" class="pb-choice-chip" data-contact="agendar_reunion">
+                <i class="fas fa-circle-check pb-choice-chip__check" aria-hidden="true"></i>
+                <span>Prefiero agendar</span>
+              </button>
+            </div>
+            <input type="hidden" name="contacto_preferencia" id="pb-contact-input" value="lo_antes_posible">
+            <input type="hidden" name="cita_dia" id="pb-cita-dia" value="">
+            <input type="hidden" name="cita_slot" id="pb-cita-slot" value="">
+
+            <div class="pb-agenda-summary" id="pb-agenda-summary" hidden>
+              <button type="button" class="pb-agenda-summary__button" id="pb-open-agenda">
+                <span class="pb-agenda-summary__title">Seleccionar fecha y hora</span>
+                <span class="pb-agenda-summary__meta" id="pb-agenda-summary-text">Haz clic para revisar la agenda disponible.</span>
+              </button>
+            </div>
+            <p class="pb-error pb-error--block" data-error-for="cita_slot">Selecciona una fecha y hora disponible.</p>
+          </section>
+
+          <section class="pb-section pb-section--comment" aria-labelledby="pb-section-comment">
+            <button type="button" class="pb-accordion" id="pb-comment-toggle" aria-expanded="false" aria-controls="pb-comment-panel">
+              <span class="pb-accordion__label">
+                <i class="fas fa-plus" aria-hidden="true"></i>
+                Agregar comentario opcional
+              </span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div class="pb-comment-shell">
+              <div class="pb-comment-panel" id="pb-comment-panel" hidden>
+                <label class="pb-sr-only" for="pb-comment">Comentario</label>
+                <textarea id="pb-comment" name="comentarios" class="pb-textarea" placeholder="¿Algo que quieras contarnos?"></textarea>
+              </div>
+            </div>
+          </section>
+
+          <div class="pb-submit-wrap">
+            <p class="pb-submit-error" id="pb-submit-error" role="alert"></p>
+            <button type="submit" id="pb-submit-button" class="pb-submit">
+              <i class="fas fa-paper-plane" aria-hidden="true"></i>
+              <span>QUIERO MI ANÁLISIS GRATIS</span>
+            </button>
+            <p class="pb-privacy">Al enviar acepto las <button type="button" class="pb-link-button" id="pb-privacy-trigger">Políticas de Privacidad</button></p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Integración directa de success-view.html para evitar fetch y problemas locales de CORS -->
+      <div id="pb-success-mount">
+        <div class="pb-success" id="pb-success-view" hidden>
+          <div class="pb-success__hero">
+            <div class="pb-success__badge">
+              <i class="fas fa-check" aria-hidden="true"></i>
+            </div>
+            <p class="pb-success__eyebrow" id="pb-success-greeting">GRACIAS</p>
+            <h2 class="pb-success__title">Solicitud enviada</h2>
+            <p class="pb-success__copy" id="pb-success-copy">Tu solicitud ya quedó registrada correctamente.</p>
+          </div>
+
+          <div class="pb-success__stack">
+            <article class="pb-success-card" id="pb-success-appointment-card" hidden>
+              <div class="pb-success-card__media">
+                <div class="pb-success-card__icon"><i class="fas fa-calendar-days" aria-hidden="true"></i></div>
+              </div>
+              <div class="pb-success-card__content">
+                <h3>Cita agendada</h3>
+                <p class="pb-success-card__highlight" id="pb-success-appointment"></p>
+                <p>Te enviaremos el detalle a tu correo y calendario.</p>
+              </div>
+            </article>
+
+            <article class="pb-success-card">
+              <div class="pb-success-card__media">
+                <div class="pb-success-card__icon"><i class="fas fa-file-lines" aria-hidden="true"></i></div>
+              </div>
+              <div class="pb-success-card__content">
+                <h3>Prepárate para la reunión</h3>
+                <p>Ten idealmente a mano:</p>
+                <ul class="pb-success-list">
+                  <li>Tu plan actual de salud</li>
+                  <li>Certificado de remuneraciones AFP de los últimos 24 meses</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <p class="pb-success__footer-copy">Mientras llega tu reunión, revisa nuestra Biblioteca PlanesPro con contenidos y temas de salud que pueden orientarte.</p>
+          <a class="pb-submit pb-submit--library" href="https://planespro.cl/biblioteca/" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-book-open" aria-hidden="true"></i>
+            <span>Explorar biblioteca</span>
+          </a>
+
+          <div class="pb-social">
+            <p>Síguenos en nuestras redes sociales</p>
+            <div class="pb-social__row">
+              <a href="https://www.instagram.com/planespro.cl" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+                <span>Instagram</span>
+              </a>
+              <a href="https://www.facebook.com/planespro.cl/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                <span>Facebook</span>
+              </a>
+              <a href="https://www.linkedin.com/company/planespro/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Integración directa del exit modal -->
+  <div id="pb-exit-modal-mount">
+    <div class="pb-modal" id="pb-exit-modal" hidden>
+      <div class="pb-modal__backdrop" data-exit-close></div>
+      <div class="pb-modal__panel pb-modal__panel--exit" role="dialog" aria-modal="true" aria-labelledby="pb-exit-title">
+        <div class="pb-exit-hero" aria-hidden="true">
+          <div class="pb-exit-hero__ring"></div>
+          <div class="pb-exit-hero__badge"><i class="fas fa-circle-check" aria-hidden="true"></i></div>
+        </div>
+        <h2 id="pb-exit-title" class="pb-exit-title">Estás a un paso de recibir tu análisis</h2>
+        <p class="pb-exit-copy">Completa los datos restantes para que podamos revisar tu plan de salud gratis y sin compromiso.</p>
+        <div class="pb-modal__actions pb-modal__actions--exit">
+          <button type="button" class="pb-modal__button pb-modal__button--ghost" id="pb-exit-confirm">Volver más tarde</button>
+          <button type="button" class="pb-modal__button" id="pb-exit-stay">Completar ahora</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Agenda Local con selector de 7 días -->
+  <div class="pb-modal" id="pb-agenda-modal" hidden>
+    <div class="pb-modal__backdrop" data-agenda-close></div>
+    <div class="pb-modal__panel pb-modal__panel--agenda" role="dialog" aria-modal="true" aria-labelledby="pb-agenda-title" style="width: 420px; max-width: 92vw;">
+      <div class="pb-agenda-modal__header" style="border-bottom: 1px solid var(--pb-border); padding-bottom: 10px;">
+        <h2 id="pb-agenda-title"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Selecciona fecha y hora</h2>
+        <button type="button" class="pb-close pb-close--small" data-agenda-close aria-label="Cerrar agenda">
+          <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="pb-agenda-modal__body pb-agenda-modal__body--custom">
+        <div class="pb-field-group">
+          <label class="pb-label" for="pb-custom-day-select" style="font-size: 0.76rem; font-weight: 700; margin-bottom: 6px;">Selecciona el día</label>
+          <div class="pb-select-wrap">
+            <select id="pb-custom-day-select" style="min-height: 40px; font-size: 0.84rem; border-radius: 12px;">
+              <!-- Dinámicamente llenado por JS con los próximos 7 días -->
+            </select>
+            <i class="fas fa-chevron-down" aria-hidden="true" style="font-size: 0.8rem;"></i>
+          </div>
+        </div>
+        <div class="pb-field-group">
+          <label class="pb-label" style="font-size: 0.76rem; font-weight: 700; margin-bottom: 6px;">Elige el horario</label>
+          <div id="pb-custom-slots-wrap" class="pb-custom-slots-container">
+            <!-- Dinámicamente llenado por JS con los 4 bloques horariales -->
+          </div>
+        </div>
+      </div>
+      <div class="pb-agenda-modal__actions" style="margin-top: 18px; border-top: 1px solid var(--pb-border); padding-top: 14px;">
+        <button type="button" class="pb-modal__button" id="pb-agenda-confirm" style="width: 100%; min-height: 44px; border-radius: 12px; font-size: 0.84rem;">Confirmar Horario</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Políticas de Privacidad -->
+  <div class="pb-modal" id="pb-privacy-modal" hidden>
+    <div class="pb-modal__backdrop" data-privacy-close></div>
+    <div class="pb-modal__panel pb-modal__panel--privacy" role="dialog" aria-modal="true" aria-labelledby="pb-privacy-title">
+      <h2 id="pb-privacy-title">Políticas de Privacidad</h2>
+      <div class="pb-modal__copy">
+        <p>Usaremos los datos que entregues en este formulario solo para revisar tu caso, contactarte y coordinar la asesoría solicitada.</p>
+        <p>Si agendas una reunión, también usaremos tus datos para reservar la cita y enviarte la confirmación correspondiente.</p>
+        <p>PlanesPro no vende tus datos personales a terceros para fines ajenos al servicio solicitado.</p>
+      </div>
+      <div class="pb-modal__actions">
+        <button type="button" class="pb-modal__button" data-privacy-close>Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
