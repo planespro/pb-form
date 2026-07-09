@@ -967,10 +967,9 @@ button {
 
 /* Mobile */
 @media (max-width: 900px) {
-  html {
-    /* Escalado proporcional: en 390px = 16px, en 320px = 13.1px, en 430px = 17.6px.
-       Todo lo que use rem se escalará como zoom in/out según el ancho de pantalla. */
-    font-size: calc(16px * (100vw / 390));
+  html,
+  body {
+    max-width: 100vw;
     overflow-x: hidden;
   }
 
@@ -982,37 +981,51 @@ button {
 
   .pb-layout {
     width: 100%;
+    max-width: 100vw;
     height: 100dvh;
-    padding: 0 10px 8px; /* Reducimos a 10px para maximizar el espacio útil en pantalla */
+    padding: 0 12px 8px;
+    overflow-x: hidden;
   }
 
   .pb-header {
     padding: 10px 0 6px;
     gap: 6px;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .pb-brand {
     gap: 6px;
+    min-width: 0; /* Permitir que el flex child se encoja */
+    overflow: hidden;
   }
 
   .pb-logo {
-    width: 38px; /* Compactamos el logo para liberar espacio horizontal */
+    width: 38px;
     height: 38px;
+    flex-shrink: 0;
+  }
+
+  .pb-brand-copy {
+    min-width: 0;
+    overflow: hidden; /* Clipea el h1 nowrap si es más ancho que el espacio disponible */
   }
 
   .pb-brand-copy h1 {
     font-size: clamp(0.85rem, 4.3vw, 1.45rem);
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .pb-header-kicker {
     font-size: clamp(0.52rem, 2.7vw, 0.72rem);
     margin-top: 2px;
-    white-space: nowrap; /* Asegurar que la tira de beneficios no se rompa de línea */
+    /* Sin white-space: nowrap - permitir que se ajuste si la pantalla es estrecha */
   }
 
   .pb-header-kicker span {
-    padding-inline: 3px; /* Reducimos el espaciado de los puntos separadores */
+    padding-inline: 3px;
   }
 
   .pb-header-note {
