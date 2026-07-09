@@ -1008,8 +1008,8 @@ button {
   }
 
   .pb-logo {
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 30px;
     flex-shrink: 0;
   }
 
@@ -1019,7 +1019,7 @@ button {
   }
 
   .pb-brand-copy h1 {
-    font-size: clamp(0.85rem, 4.3vw, 1.45rem);
+    font-size: 1rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1059,6 +1059,12 @@ button {
     overscroll-behavior: contain;
     scroll-padding-bottom: calc(var(--pb-keyboard-offset) + 144px);
     padding-bottom: calc(12px + var(--pb-keyboard-offset));
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .pb-body::-webkit-scrollbar,
+  .pb-success::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
   }
 
   .pb-success {
