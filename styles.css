@@ -1027,7 +1027,7 @@ button {
   }
 
   .pb-brand-copy h1 {
-    font-size: 0.65rem;
+    font-size: 0.78rem;
     line-height: 1.05;
     white-space: nowrap;
     overflow: hidden;
@@ -1290,13 +1290,13 @@ button {
   }
 
   .pb-section-icon {
-    width: 18px;
-    height: 18px;
-    font-size: 0.6rem;
+    width: 22px;
+    height: 22px;
+    font-size: 0.72rem;
   }
 
   .pb-section-title {
-    font-size: 0.58rem;
+    font-size: 0.7rem;
     line-height: 1.1;
   }
 
