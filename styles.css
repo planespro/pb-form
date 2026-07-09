@@ -1517,8 +1517,8 @@ button {
 
 
 
-/* Short-height screens */
-@media (max-height: 820px) {
+/* Short-height screens (Desktop only) */
+@media (min-width: 901px) and (max-height: 820px) {
   .pb-header {
     padding-top: 12px;
     padding-bottom: 8px;
