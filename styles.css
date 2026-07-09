@@ -1281,6 +1281,7 @@ button {
   .pb-social__row a {
     width: 44px;
     height: 44px;
+    flex: none; /* Previene que se aplasten y formen óvalos */
     border-radius: 50%;
     background: #fff;
     color: var(--pb-blue);
