@@ -75,7 +75,7 @@ function doPost(e) {
       new Date(), // Fecha actual
       data.nombre || "",
       data.email || "",
-      telefono,
+      (telefono && telefono.startsWith("+")) ? "'" + telefono : telefono,
       data.rango_edad || "",
       data.sistema_actual || "",
       data.isapre_especifica || "",
